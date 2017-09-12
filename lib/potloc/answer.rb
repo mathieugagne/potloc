@@ -12,7 +12,7 @@ module Potloc
 
     def save
       database.exec("INSERT INTO answers (email, question_id, type, value) " \
-              "VALUES ('#{email}', #{question.id}, #{question.category}, #{value}');")
+              "VALUES ('#{email}', '#{question.id}', '#{question.category}', '#{value}');")
     end
 
     def value
