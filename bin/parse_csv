@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+$:.unshift(File.expand_path("../../lib", __FILE__))
+
+require "potloc"
+
+survey = Potloc::Survey.new
+survey.import_csv

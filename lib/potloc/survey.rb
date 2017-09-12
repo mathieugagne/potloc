@@ -2,5 +2,8 @@
 
 module Potloc
   class Survey
+    def import_csv
+      puts "First iteration"
+    end
   end
 end
