@@ -4,20 +4,21 @@ module Potloc
   class Survey
     def import_csv(file)
       CSV.foreach(file, headers: :first_row) do |row|
-        questions.each_with_index do |question, col_index|
-          db.exec("INSERT INTO sometable (col1, col2) VALUES ('#{question}', '#{row.field(col_index)}');")
+        email_question = Question.email
+        email = Answer.new(email_question, row).value
+        # TODO: Validate no other answer for that given email has been inserted yet
+        questions.each do |question|
+          # puts question.inspect
+          answer = Answer.new(question, row, email: email)
+          answer.save
         end
       end
     end
 
     private
 
-    def db
-      Database.new
-    end
-
     def questions
-      CSV.read("results.csv", headers: true).headers
+      Question.all
     end
   end
 end
