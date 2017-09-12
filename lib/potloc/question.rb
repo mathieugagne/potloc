@@ -7,61 +7,85 @@ module Potloc
         id: 1,
         category: "email",
         column: 13,
-        question_id: nil,
       },
       {
         id: 2,
         category: "simple",
         column: 0,
-        question_id: nil,
       },
       {
         id: 3,
         category: "simple",
         column: 1,
-        question_id: nil,
       },
       {
         id: 4,
         category: "simple",
         column: 7,
-        question_id: nil,
       },
       {
         id: 5,
         category: "simple",
         column: 10,
-        question_id: nil,
       },
       {
         id: 6,
         category: "simple",
         column: 11,
-        question_id: nil,
       },
       {
         id: 7,
         category: "simple",
         column: 12,
-        question_id: nil,
       },
       {
         id: 8,
         category: "simple",
         column: 14,
-        question_id: nil,
       },
       {
         id: 9,
         category: "simple",
         column: 15,
-        question_id: nil,
       },
       {
         id: 10,
         category: "simple",
         column: 16,
-        question_id: nil,
+      },
+      {
+        id: 11,
+        category: "multiple",
+      },
+      {
+        id: 12,
+        category: "simple",
+        column: 2,
+        question_id: 11
+      },
+      {
+        id: 13,
+        category: "simple",
+        column: 3,
+        question_id: 11
+      },
+      {
+        id: 14,
+        category: "simple",
+        column: 4,
+        question_id: 11
+      },
+      {
+        id: 15,
+        category: "simple",
+        column: 5,
+        question_id: 11
+      },
+      {
+        id: 16,
+        category: "simple",
+        column: 6,
+        question_id: 11
       },
     ].freeze
 
@@ -76,12 +100,16 @@ module Potloc
     end
 
     def inspect
-      "<Question:#{object_id} id:#{id}, column:#{column} category:#{category} question_id:#{question_id}>"
+      "<Question:#{object_id} id:#{id} " \
+                              "column:#{column} " \
+                              "category:#{category} " \
+                              "question_id:#{question_id} " \
+                              "survey_id:#{survey_id}>"
     end
 
     class << self
       def all
-        questions = QUESTIONS.reject { |question| question[:category] == "email" }
+        questions = QUESTIONS.select { |question| question[:category] == "simple" }
         questions.map do |question|
           Question.new(question)
         end
