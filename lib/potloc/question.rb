@@ -5,14 +5,62 @@ module Potloc
     QUESTIONS = [
       {
         id: 1,
+        category: "email",
+        column: 13,
+        question_id: nil,
+      },
+      {
+        id: 2,
+        category: "simple",
+        column: 0,
+        question_id: nil,
+      },
+      {
+        id: 3,
         category: "simple",
         column: 1,
         question_id: nil,
       },
       {
-        id: 2,
-        category: "email",
-        column: 13,
+        id: 4,
+        category: "simple",
+        column: 7,
+        question_id: nil,
+      },
+      {
+        id: 5,
+        category: "simple",
+        column: 10,
+        question_id: nil,
+      },
+      {
+        id: 6,
+        category: "simple",
+        column: 11,
+        question_id: nil,
+      },
+      {
+        id: 7,
+        category: "simple",
+        column: 12,
+        question_id: nil,
+      },
+      {
+        id: 8,
+        category: "simple",
+        column: 14,
+        question_id: nil,
+      },
+      {
+        id: 9,
+        category: "simple",
+        column: 15,
+        question_id: nil,
+      },
+      {
+        id: 10,
+        category: "simple",
+        column: 16,
         question_id: nil,
       },
     ].freeze
