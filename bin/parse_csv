@@ -5,4 +5,8 @@ $:.unshift(File.expand_path("../../lib", __FILE__))
 require "potloc"
 
 survey = Potloc::Survey.new
-survey.import_csv
+
+# The idea is to be able to eventually give the csv file as an argument
+file = File.open("results.csv", "r")
+
+survey.import_csv(file)
