@@ -3,9 +3,10 @@
 module Potloc
   class Survey
 
-    attr_accessor :emails
+    attr_accessor :answers, :emails
 
     def initialize
+      @answers = []
       @emails = []
     end
 
@@ -15,14 +16,19 @@ module Potloc
         email = Answer.new(email_question, row).value
         if valid?(email)
           questions.each do |question|
-            answer = Answer.new(question, row, email: email)
-            answer.save
+            answers << Answer.new(question, row, email: email)
           end
         end
       end
+      bulk_insert
     end
 
     private
+
+    def bulk_insert
+      answers.map(&:save)
+    end
+
 
     def questions
       Question.all
